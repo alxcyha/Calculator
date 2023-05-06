@@ -6,89 +6,93 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-  <!-- component -->
-<style>@import url(https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css);</style>
-<div class="flex flex-wrap justify-center place-content-center min-w-screen pt-5 bg-gray-600 flex items-center justify-center "style="max-width: 1080px">
+    
+<!-- <style>@import url(https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css);</style> -->
+<!-- <div class="flex flex-wrap justify-center place-content-center min-w-screen pt-5 bg-gray-600 flex items-center justify-center "style="max-width: 1080px">
     <img
       src="https://pbs.twimg.com/profile_banners/1310495861353279488/1654169995/600x200"
       class=" rounded-lg shadow-none transition-shadow duration-300 ease-in-out hover:shadow-lg hover:shadow-black/30">
-</div>
-<div class="min-w-screen min-h-screen bg-gray-600 flex items-center justify-center px-5 pt-0 ">
+</div> -->
+    <div class="calculator min-w-screen min-h-screen bg-gray-600 flex items-center justify-center px-5 pt-0 ">
 
-    <div class="w-full align-top mx-auto rounded-xl bg-gray-50 shadow-xl text-gray-800 relative overflow-hidden" style="max-width:1080px">
-        <div class="w-full h-40 border-b border-slate-50 bg-gradient-to-b from-purple-400 to-pink-400 flex items-end text-right">
-            <div class="w-full py-5 px-6 text-6xl text-white font-semibold">150.0</div>
-        </div>
-        <div class="w-full bg-gradient-to-b from-pink-400 to-cyan-400">
-            <div class="flex w-full">
-                <div class="w-1/4 border-r border-b border-slate-50 rounded-lg">
-                    <button class="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-opacity-60 text-xl font-normal">C</button>
-                </div>
-                <div class="w-1/4 border-r border-b border-slate-50 rounded-lg">
-                    <button class="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-opacity-60 text-xl font-normal">+/-</button>
-                </div>
-                <div class="w-1/4 border-r border-b border-slate-50 rounded-lg">
-                    <button class="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-opacity-60 text-xl font-normal">%</button>
-                </div>
-                <div class="w-1/4 border-r border-b border-slate-50 rounded-lg">
-                    <button class="w-full h-16 outline-none focus:outline-none bg-indigo-700 bg-opacity-10 hover:bg-opacity-20 text-white text-2xl font-normal">÷</button>
-                </div>
+        <div class="w-full align-top mx-auto rounded-xl bg-gray-50 shadow-xl text-gray-800 relative overflow-hidden" style="max-width:1080px">
+            <div class="w-full h-40 border-b border-slate-50 flex items-end">
+                <input type="text" class="screen w-full py-5 px-6 text-6xl text-black text-right font-semibold" placeholder="0" id="screen">
             </div>
-            <div class="flex w-full">
-                <div class="w-1/4 border-r border-b border-slate-50 rounded-lg">
-                    <button class="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light">7</button>
+            <div class="w-full bg-gradient-to-b from-pink-400 to-cyan-400">
+                <div class="flex w-full">
+                    <div class="w-1/4 border-r border-b border-slate-50 rounded-lg">
+                        <button class="symbol w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-opacity-60 text-xl font-normal" onclick="wipe()">AC</button>
+                    </div>
+                    <div class="w-1/4 border-r border-b border-slate-50 rounded-lg">
+                        <button class="symbol w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-opacity-60 text-xl font-normal" onclick="del()">DEL</button>
+                    </div>
+                    <div class="w-1/4 border-r border-b border-slate-50 rounded-lg">
+                        <button class="symbol w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-opacity-60 text-xl font-normal" onclick="show('/')">÷</button>
+                    </div>
+                    <div class="w-1/4 border-r border-b border-slate-50 rounded-lg">
+                        <button class="symbol w-full h-16 outline-none focus:outline-none bg-indigo-700 bg-opacity-10 hover:bg-opacity-20 text-white text-2xl font-normal" onclick="show('*')">x</button>
+                    </div>
                 </div>
-                <div class="w-1/4 border-r border-b border-slate-50 rounded-lg">
-                    <button class="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light">8</button>
+                <div class="flex w-full">
+                    <div class="w-1/4 border-r border-b border-slate-50 rounded-lg">
+                        <button class="number w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light"onclick="show('7')">7</button>
+                    </div>
+                    <div class="w-1/4 border-r border-b border-slate-50 rounded-lg">
+                        <button class="number w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light"onclick="show('8')">8</button>
+                    </div>
+                    <div class="w-1/4 border-r border-b border-slate-50 rounded-lg">
+                        <button class="number w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light"onclick="show('9')">9</button>
+                    </div>
+                    <div class="w-1/4 border-r border-b border-slate-50 rounded-lg">
+                        <button class="symbol w-full h-16 outline-none focus:outline-none bg-indigo-700 bg-opacity-10 hover:bg-opacity-20 text-white text-xl font-normal" onclick="show('-')">-</button>
+                    </div>
                 </div>
-                <div class="w-1/4 border-r border-b border-slate-50 rounded-lg">
-                    <button class="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light">9</button>
+                <div class="flex w-full">
+                    <div class="w-1/4 border-r border-b border-slate-50 rounded-lg">
+                        <button class="number w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light" onclick="show('4')">4</button>
+                    </div>
+                    <div class="w-1/4 border-r border-b border-slate-50 rounded-lg">
+                        <button class="number w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light" onclick="show('5')">5</button>
+                    </div>
+                    <div class="w-1/4 border-r border-b border-slate-50 rounded-lg">
+                        <button class="number w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light" onclick="show('6')">6</button>
+                    </div>
+                    <div class="w-1/4 border-r border-b border-slate-50 rounded-lg">
+                        <button class="symbol w-full h-16 outline-none focus:outline-none bg-indigo-700 bg-opacity-10 hover:bg-opacity-20 text-white text-xl font-normal" onclick="show('+')">+</button>
+                    </div>
                 </div>
-                <div class="w-1/4 border-r border-b border-slate-50 rounded-lg">
-                    <button class="w-full h-16 outline-none focus:outline-none bg-indigo-700 bg-opacity-10 hover:bg-opacity-20 text-white text-xl font-normal">⨉</button>
+                <div class="flex w-full">
+                    <div class="w-1/4 border-r border-b border-slate-50 rounded-lg">
+                        <button class="number w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light" onclick="show('1')">1</button>
+                    </div>
+                    <div class="w-1/4 border-r border-b border-slate-50 rounded-lg">
+                        <button class="number w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light" onclick="show('2')">2</button>
+                    </div>
+                    <div class="w-1/4 border-r border-b border-slate-50 rounded-lg">
+                        <button class="number w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light" onclick="show('3')">3</button>
+                    </div>
+                    <div class="w-1/4 border-r border-b border-slate-50 rounded-lg">
+                        <button class="symbol w-full h-16 outline-none focus:outline-none bg-indigo-700 bg-opacity-10 hover:bg-opacity-20 text-white text-xl font-normal" onclick="show('.')">.</button>
+                    </div>
                 </div>
-            </div>
-            <div class="flex w-full">
-                <div class="w-1/4 border-r border-b border-slate-50 rounded-lg">
-                    <button class="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light">4</button>
-                </div>
-                <div class="w-1/4 border-r border-b border-slate-50 rounded-lg">
-                    <button class="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light">5</button>
-                </div>
-                <div class="w-1/4 border-r border-b border-slate-50 rounded-lg">
-                    <button class="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light">6</button>
-                </div>
-                <div class="w-1/4 border-r border-b border-slate-50 rounded-lg">
-                    <button class="w-full h-16 outline-none focus:outline-none bg-indigo-700 bg-opacity-10 hover:bg-opacity-20 text-white text-xl font-normal">-</button>
-                </div>
-            </div>
-            <div class="flex w-full">
-                <div class="w-1/4 border-r border-b border-slate-50 rounded-lg">
-                    <button class="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light">1</button>
-                </div>
-                <div class="w-1/4 border-r border-b border-slate-50 rounded-lg">
-                    <button class="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light">2</button>
-                </div>
-                <div class="w-1/4 border-r border-b border-slate-50 rounded-lg">
-                    <button class="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light">3</button>
-                </div>
-                <div class="w-1/4 border-r border-b border-slate-50 rounded-lg">
-                    <button class="w-full h-16 outline-none focus:outline-none bg-indigo-700 bg-opacity-10 hover:bg-opacity-20 text-white text-xl font-normal">+</button>
-                </div>
-            </div>
-            <div class="flex w-full">
-                <div class="w-1/4 border-r border-b border-slate-50 rounded-lg">
-                    <button class="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light">0</button>
-                </div>
-                <div class="w-1/4 border-r border-b border-slate-50 rounded-lg">
-                    <button class="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-normal">.</button>
-                </div>
-                <div class="w-2/4 border-r border-b border-slate-50 rounded-lg">
-                    <button class="w-full h-16 outline-none focus:outline-none bg-indigo-700 bg-opacity-30 hover:bg-opacity-40 text-white text-xl font-semibold">=</button>
+                <div class="flex w-full">
+                    <div class="w-1/4 border-r border-b border-slate-50 rounded-lg">
+                        <button class="symbol w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-normal" onclick="show('(')">(</button>
+                    </div>
+                    <div class="w-1/4 border-r border-b border-slate-50 rounded-lg">
+                        <button class="number w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light" onclick="show('0')">0</button>
+                    </div>
+                    <div class="w-1/4 border-r border-b border-slate-50 rounded-lg">
+                        <button class="symbol w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-normal" onclick="show(')')">)</button>
+                    </div>
+                    <div class="w-1/4 border-r border-b border-slate-50 rounded-lg">
+                        <button class="symbol w-full h-16 outline-none focus:outline-none bg-indigo-700 bg-opacity-30 hover:bg-opacity-40 text-white text-xl font-semibold" onclick="calc()">=</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    <script src="script.js"></script>
 </body>
 </html>
