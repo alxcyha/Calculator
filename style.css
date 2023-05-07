@@ -1,19 +1,28 @@
-body{
 
-}
 .calculator{
     
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-.screen{
+    width: 325px;
+    border: 1px;
+    padding: .7rem;
+    aspect-ratio: 1;
+    gap: .76rem;
 
 }
+.screen{
+    border-radius: .75rem;
+    height: 7rem;
+    padding: .5rem;
+}
 .symbol{
+    background: rgb(219 39 119);
+    border-radius: 50%;
 
 }
 .number{
-    
+    background: gray;
+    border-radius: 50%;
 }
