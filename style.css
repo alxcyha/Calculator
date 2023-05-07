@@ -5,21 +5,43 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 325px;
-    border: 1px;
-    padding: .7rem;
+    width: 350px;
+    border: 7px;
+    padding: .9rem;
     aspect-ratio: 1;
     gap: .76rem;
 
 }
+.inputs{
+    
+    align-items: center;
+    justify-content: center;
+}
+
+
+button{
+    height: 50px;
+    width: 50px;
+    box-shadow: 5px 5px 12px rgba(7, 7, 7, 0.425);
+    padding-left: 8px;
+    
+    
+    
+    
+}
 .screen{
-    border-radius: .75rem;
-    height: 7rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: .5rem;
+    margin-right: .5rem;
+    border-radius: .85rem;
+    height: 6rem;
     padding: .5rem;
 }
 .symbol{
     background: rgb(219 39 119);
     border-radius: 50%;
+
 
 }
 .number{
